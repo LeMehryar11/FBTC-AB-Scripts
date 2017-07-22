@@ -41,7 +41,7 @@ function stopBeforeRedirect(){
     var minutesLeft = parseInt($('title').text());
     if(minutesLeft < stopBefore){
         console.log('Approaching redirect. Turning autobet off...');
-        stopGame();
+        stopAutobet();
         return true;
     }
     return false;
@@ -77,7 +77,7 @@ $('#double_your_btc_bet_win').bind("DOMSubtreeModified",function(event){
         }
         console.log('Bet WON. Resetting bet amount...');
         resetBet();
-        if(autobetRunning = false){
+        if(!autobetRunning){
             autobetRunning = true;
             return;
         }
